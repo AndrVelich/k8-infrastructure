@@ -1,0 +1,63 @@
+## Plans
+
+1. ArgoCD for k8s. Deploy the app.
+    1. How to manage ArgoCD? By using a separate repo, from terraform, or from the same repo?
+    2. Read [some nice articles about terraform and ArgoCD on LinkedIn](https://www.linkedin.com/pulse/automating-kubernetes-cluster-cicd-setup-terraform-argo-stephen-kuntz)
+    3. [A nice setup on CircleCI](https://circleci.com/blog/deploy-to-kubernetes-with-argocd/)
+    4. [Watch Native EKS ALB video](https://youtu.be/ZfjpWOC5eoE)
+2. Managing kubernetes
+    1. [Deploy kubernetes dashboard](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html)
+    2. Understand, how to monitor resources, what
+    3. [Understand, how to setup RBAC and users, maybe SSO](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html)
+    4. [Read Docs on AWS about cluster management](https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html)
+    5. Understand how to manage access to namespaces, network policies
+3. Setup Ingress solution
+    1. [Setup ingress for ArgoCD?](https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/)
+    2. Read about traefik as Ingress. Read all Traefik docs?
+    3. Investigate how to protect Ingress routes with SSO - [How to implement SSO with Traefik V2 on Kubernetes](https://docs.aws.amazon.com/eks/latest/userguide/clusters.html)
+    4. [Investigate Traeffic service mesh](https://traefik.io/blog/announcing-maesh-a-lightweight-and-simpler-service-mesh-made-by-the-traefik-team-cb866edc6f29/)
+    5. Manage DNS internally in k8s?
+    6. How to perform redirect from 80 to 443
+4. Git Registry
+    1. Try to deploy helm chart as well
+    2. Verify costs and security settings
+    3. Is it possible to use a PAT which allows access with limited packages only?
+5. Choose the secrets management solution for Kubernetes
+6. Investigate logging and monitoring in k8s
+    1. Can we use Grafana for logs? Is it better then ELK?
+    2. For monitoring, which dashboards can we automate? And should we?
+    3. Read about opentelemetry solution. What we can use?
+    4. Which pinging/healthcheck solution to prefer? Can we show some pages of liveness of the web services?
+    5. AppSync will be used for frontend. Should we use it as an error backend, are there any alternatives? Should we use AppSync for dashboards?
+
+## Questions to Stan
+
+1. Which SSO to use? Do we need any email management system which can be SSO (like Google)? Can we use Google?
+2. Get DNS and setup it in AWS (or maybe anywhere else, like CloudFlare?). Is it possible to integrate it with k8s?
+
+## Jira tasks
+
+1. Setup AWS accounts, roles, groups, SSO
+
+## Completed tasks
+
+1. Setup EKS cluster using terraform
+2. Setup karpenter for EKS using terraform
+3. Setup ArgoCD using terraform
+4. Setup SSO using GitHub for ArgoCD
+5. Configure demo NextJS application in Kubernetes using ArgoCD
+6. Setup 3 AWS accounts within the same organisation and AWS SSO, basic users, groups and roles
+
+## To read later
+
+1. Terraform best practices
+    1. [https://www.terraform-best-practices.com/code-structure](https://www.terraform-best-practices.com/code-structure)
+    2. [https://cloud.google.com/docs/terraform/best-practices-for-terraform](https://cloud.google.com/docs/terraform/best-practices-for-terraform)
+    3. [https://medium.com/devops-mojo/terraform-best-practices-top-best-practices-for-terraform-configuration-style-formatting-structure-66b8d938f00c](https://medium.com/devops-mojo/terraform-best-practices-top-best-practices-for-terraform-configuration-style-formatting-structure-66b8d938f00c)
+2. EKS - Read documentation
+    1. [EKS terraform module](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/18.30.3)
+    2. [EKS Addons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html)
+    3. [Read all EKS docs](https://docs.aws.amazon.com/eks/latest/userguide/clusters.html)
+3. Karpenter
+    1. [Best practices](https://aws.github.io/aws-eks-best-practices/karpenter/)
+4. Read all nextjs docks
