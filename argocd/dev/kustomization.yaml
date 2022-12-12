@@ -10,4 +10,3 @@ commonLabels:
 patchesStrategicMerge:
 - businesscard/application.yaml
 - traefik/application.yaml
-- ingress/argocd-ingressroute.yaml
