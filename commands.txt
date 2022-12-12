@@ -1,0 +1,50 @@
+kubectl config get-contexts
+kubectl config use-context docker-desktop/minikube
+
+minikube start --driver=docker
+minikube config set driver docker
+
+--deploy dashboard
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.1/aio/deploy/recommended.yaml
+
+kubectl api-resources -o wide
+
+--Dashboard
+kubectl apply -f dashboard-adminuser.yaml
+kubectl -n kubernetes-dashboard create token admin-user --duration=87600h
+kubectl proxy
+
+--Kustomize
+kubectl apply -k directoryname
+
+--Argocd
+
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+                           https://github.com/               argoproj/argo-cd/blob/master/manifests/ha/install.yaml
+
+kubectl port-forward svc/argocd-server -n argocd 8081:443
+
+helm repo add argo https://argoproj.github.io/argo-helm
+helm search repo argo
+helm install argocd argo/argo-cd --version="5.16.2" -f argocd/helm-values/argocd-helm-values.yaml -n argocd --create-namespace
+
+wtjygUtntTl1M15P
+
+--Helm
+
+helm install businesscard-chart .  --namespace=businesscard-helm --create-namespace
+helm upgrade --install businesscard-chart . --namespace=businesscard-helm
+helm rollback businesscard-chart 2 -n businesscard-helm
+helm uninstall businesscard-chart -n businesscard-helm
+
+--AWS
+aws eks update-kubeconfig --region eu-central-1 --name eks-av
+
+--Traefik
+helm install --namespace=traefik traefik traefik/traefik
+
+kubectl get pods -n traefik --selector "app.kubernetes.io/name=traefik" --output=name
+kubectl port-forward -n traefik pod/traefik-67d9cfc7df-sqptd 9000:9000
+
+kubectl port-forward svc/traefik -n traefik 9010:443

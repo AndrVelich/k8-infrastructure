@@ -51,9 +51,9 @@
 ## To read later
 
 1. Terraform best practices
-    1. [https://www.terraform-best-practices.com/code-structure](https://www.terraform-best-practices.com/code-structure)
-    2. [https://cloud.google.com/docs/terraform/best-practices-for-terraform](https://cloud.google.com/docs/terraform/best-practices-for-terraform)
-    3. [https://medium.com/devops-mojo/terraform-best-practices-top-best-practices-for-terraform-configuration-style-formatting-structure-66b8d938f00c](https://medium.com/devops-mojo/terraform-best-practices-top-best-practices-for-terraform-configuration-style-formatting-structure-66b8d938f00c)
+    1. https://www.terraform-best-practices.com/code-structure
+    2. https://cloud.google.com/docs/terraform/best-practices-for-terraform
+    3. https://medium.com/devops-mojo/terraform-best-practices-top-best-practices-for-terraform-configuration-style-formatting-structure-66b8d938f00c
 2. EKS - Read documentation
     1. [EKS terraform module](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/18.30.3)
     2. [EKS Addons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html)
