@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard-ingress
+  namespace: argocd
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: "Host(`traefik.local`) && PathPrefix(`/api`, `/dashboard`)"
+      services:
+      - name: api@internal
+        kind: TraefikService
+  tls:
+    certResolver: default
