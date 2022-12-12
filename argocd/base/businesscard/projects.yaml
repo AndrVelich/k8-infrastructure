@@ -40,7 +40,7 @@ spec:
   - group: ''
     kind: Service
   - group: 'traefik.containo.us'
-    kind: 'v1alpha1'
+    kind: 'IngressRoute'
 
   # Enables namespace orphaned resource monitoring.
   orphanedResources:
