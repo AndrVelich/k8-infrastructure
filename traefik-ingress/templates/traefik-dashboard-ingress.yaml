@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: traefik-dashboard-ingress
-  namespace: argocd
+  namespace: traefik
 spec:
   entryPoints:
     - websecure
@@ -12,5 +12,13 @@ spec:
       services:
       - name: api@internal
         kind: TraefikService
-  tls:
-    certResolver: default
+  middlewares:
+    - name: auth
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: auth
+spec:
+  basicAuth:
+    secret: secretName # Kubernetes secret named "secretName"
