@@ -39,6 +39,8 @@ spec:
     kind: Deployment
   - group: ''
     kind: Service
+  - group: 'traefik.containo.us'
+    kind: 'v1alpha1'
 
   # Enables namespace orphaned resource monitoring.
   orphanedResources:
