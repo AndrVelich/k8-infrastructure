@@ -16,7 +16,7 @@ spec:
 
   # Source of the application manifests
   source:
-    path: traefik-ingress
+    path: "traefik-ingress"
     repoURL: "https://github.com/AndrVelich/k8-infrastructure"
     targetRevision: HEAD
     helm:
