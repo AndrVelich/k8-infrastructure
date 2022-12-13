@@ -3,6 +3,4 @@ kind: Kustomization
 resources:
   - traefik/projects.yaml
   - traefik/application.yaml
-  - businesscard/repositories.yaml
-  - businesscard/projects.yaml
-  - businesscard/application.yaml
+  - argocd-developer/application.yaml

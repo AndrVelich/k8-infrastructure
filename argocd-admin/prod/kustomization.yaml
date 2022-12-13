@@ -5,8 +5,8 @@ bases:
 - ../base
 
 commonLabels:
-  env: dev
+  env: prod
 
 patchesStrategicMerge:
-- businesscard/application.yaml
 - traefik/application.yaml
+- argocd-developer/application.yaml
