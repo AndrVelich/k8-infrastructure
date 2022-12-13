@@ -1,0 +1,21 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: argocd-cm
+  namespace: argocd
+data:
+  admin.enabled: 'true'
+  application.instanceLabelKey: argocd.argoproj.io/instance
+  dex.config: |
+    connectors:
+      - type: github
+        id: github
+        name: GitHub
+        config:
+          clientID: c694265060d3407ce0c3
+          clientSecret: INSERT-CLIENT-SECRET-HERE
+          orgs:
+            - name: AndrVelich-org
+          loadAllGroups: true
+  exec.enabled: 'false'
+  url: https://argocd.local

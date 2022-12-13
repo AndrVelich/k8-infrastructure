@@ -1,0 +1,21 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.csv: |
+    p, role:developer, applications, *, */*, allow
+    p, role:developer, projects, *, */*, allow
+    p, role:developer, clusters, get, *, allow
+    p, role:developer, repositories, get, *, allow
+    p, role:developer, repositories, create, *, allow
+    p, role:developer, repositories, update, *, allow
+    p, role:developer, repositories, delete, *, allow
+    p, role:developer, logs, get, *, allow
+    p, role:developer, exec, create, */*, allow
+    p, role:developer, *, *, default/*, deny
+    p, role:developer, *, *, traefik-project/*, deny
+
+    g,AndrVelich-org:developers, role:developer
+  policy.default: ''
