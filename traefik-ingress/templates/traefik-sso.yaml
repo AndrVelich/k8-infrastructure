@@ -5,6 +5,10 @@ metadata:
   labels:
     app: traefik-sso
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traefik-sso
   template:
     metadata:
       labels:
@@ -13,7 +17,7 @@ spec:
     spec:
       containers:
       - name: traefik-sso
-        image: thomseddon/traefik-forward-auth:latest
+        image: thomseddon/traefik-forward-auth:2
         imagePullPolicy: Always
         env:
         - name: PROVIDERS_GOOGLE_CLIENT_ID
