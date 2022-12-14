@@ -18,5 +18,5 @@ traefik:
       # /!\ Do not expose your dashboard without any protection over the internet /!\
       entryPoints: ["websecure"]
       # Additional ingressRoute middlewares (e.g. for authentication)
-      middlewares: []
+      middlewares: [name: "traefik-sso@kubernetescrd"]
 
