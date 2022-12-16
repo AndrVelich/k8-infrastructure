@@ -41,8 +41,8 @@ spec:
           value: auth.traefik.local.com
         - name: INSECURE_COOKIE
           value: "false"
-        # - name: URL_PATH 
-        #   value: /_oauth
+        # - name: DOMAIN # The google emails domain allowed to signin
+        #   value: xyz.com
         - name: WHITELIST
           value: andr.velich@gmail.com
         - name: MATCH_WHITELIST_OR_DOMAIN
