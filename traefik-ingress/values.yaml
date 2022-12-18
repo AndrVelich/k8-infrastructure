@@ -19,4 +19,15 @@ traefik:
       entryPoints: ["websecure"]
       # Additional ingressRoute middlewares (e.g. for authentication)
       middlewares: [name: "sso"]
+  
+  metrics:
+    prometheus:
+      addEntryPointsLabels: true
+      addRoutersLabels: true
+      addServicesLabels: true
+      buckets:
+      - 0.1
+      - 0.3
+      - 1.2
+      - 5.0  
 
