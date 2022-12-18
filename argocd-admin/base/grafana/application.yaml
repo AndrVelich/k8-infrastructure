@@ -18,7 +18,7 @@ spec:
   source:
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: '6.48.0'  # For Helm, this refers to the chart version.
-    chart: grafana/grafana  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
+    chart: grafana  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
 
   # Destination cluster and namespace to deploy the application
   destination:
