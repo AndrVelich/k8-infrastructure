@@ -4,7 +4,7 @@ metadata:
   name: traefik-metrics
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - kind: Rule
       match: Host(`metrics.local.com`) && PathPrefix(`/metrics`)
