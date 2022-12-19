@@ -1,63 +1,63 @@
 kube-prometheus-stack:
+
   prometheus-node-exporter:
     hostRootFsMount: false
-  
+
   ## Configuration for alertmanager
   ## ref: https://prometheus.io/docs/alerting/alertmanager/
   ##
   alertmanager:
     ingress:
       enabled: true
-  
+
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
         traefik.ingress.kubernetes.io/router.middlewares: traefik-sso@kubernetescrd
-  
+
       labels: {}
-  
+
       ## Redirect ingress to an additional defined port on the service
       # servicePort: 8081
-  
+
       ## Hosts must be provided if Ingress is enabled.
       ##
       hosts:
         - alertmanager.k8s-infrastructure.local
-  
-  
+
+
   ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
   ##
   grafana:
     enabled: true
-  
+
     ## Timezone for the default dashboards
     ## Other options are: browser or a specific timezone, i.e. Europe/Luxembourg
     ##
     defaultDashboardsTimezone: browser
-  
+
     adminPassword: prom-operator
-  
+
     ingress:
       enabled: true
-  
+
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
         traefik.ingress.kubernetes.io/router.middlewares: traefik-sso@kubernetescrd
-  
+
       hosts:
         - grafana.k8s-infrastructure.local
-  
+
   ## Deploy a Prometheus instance
   ##
   prometheus:
     enabled: true
-  
+
     ingress:
       enabled: true
-  
+
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
         traefik.ingress.kubernetes.io/router.middlewares: traefik-sso@kubernetescrd
-  
+
       hosts:
         - prometheus.k8s-infrastructure.local
-  
