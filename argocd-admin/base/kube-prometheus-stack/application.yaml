@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana
+  name: kube-prometheus-stack
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
@@ -9,22 +9,22 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
   # Add labels to your application object.
   labels:
-    name: grafana
+    name: kube-prometheus-stack
 spec:
   # The project the application belongs to.
-  project: grafana-project
+  project: kube-prometheus-stack-project
 
   # Source of the application manifests
   source:
-    repoURL: https://grafana.github.io/helm-charts
-    targetRevision: '6.48.0'  # For Helm, this refers to the chart version.
-    chart: grafana  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
+    path: "kube-prometheus-stack"
+    repoURL: "https://github.com/AndrVelich/k8s-infrastructure"
+    targetRevision: HEAD
 
   # Destination cluster and namespace to deploy the application
   destination:
     server: https://kubernetes.default.svc
     # The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace
-    namespace: grafana
+    namespace: kube-prometheus-stack
 
   # Sync policy
   syncPolicy:
