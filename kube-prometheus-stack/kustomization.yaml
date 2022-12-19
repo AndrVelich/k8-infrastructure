@@ -1,7 +1,0 @@
-helmCharts:
-  - repo: "https://prometheus-community.github.io/helm-charts"
-    name: "kube-prometheus-stack"
-    releaseName: "kube-prometheus-stack"
-    version: "43.1.1"
-    namespace: kube-prometheus-stack
-    valuesFile: values.yaml
