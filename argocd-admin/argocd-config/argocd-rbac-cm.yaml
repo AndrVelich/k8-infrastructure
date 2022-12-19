@@ -14,8 +14,10 @@ data:
     p, role:developer, repositories, delete, *, allow
     p, role:developer, logs, get, *, allow
     p, role:developer, exec, create, */*, allow
+    
     p, role:developer, *, *, default/*, deny
     p, role:developer, *, *, traefik-project/*, deny
+    p, role:developer, *, *, kube-prometheus-stack-project/*, deny
 
     g,AndrVelich-org:developers, role:developer
   policy.default: ''

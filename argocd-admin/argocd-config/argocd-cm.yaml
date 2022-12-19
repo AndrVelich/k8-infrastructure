@@ -19,4 +19,10 @@ data:
             - name: AndrVelich-org
           loadAllGroups: true
   exec.enabled: 'false'
-  url: https://argocd.local
+  url: https://argocd.local.k8s-infrastructure.com
+  resource.customizations: |
+    extensions/Ingress:
+        health.lua: |
+          hs = {}
+          hs.status = "Healthy"
+          return hs
