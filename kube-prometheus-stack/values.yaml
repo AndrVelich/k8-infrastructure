@@ -1,3 +1,6 @@
+prometheus-node-exporter:
+  hostRootFsMount: false
+
 ## Configuration for alertmanager
 ## ref: https://prometheus.io/docs/alerting/alertmanager/
 ##
