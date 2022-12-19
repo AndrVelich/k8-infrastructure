@@ -36,9 +36,9 @@ spec:
               name: traefik-sso
               key: secret
         - name: COOKIE_DOMAIN
-          value: traefik.local.com
+          value: local.k8s-infrastructure.com
         - name: AUTH_HOST
-          value: auth.traefik.local.com
+          value: auth.local.k8s-infrastructure.com
         - name: INSECURE_COOKIE
           value: "false"
         # - name: DOMAIN # The google emails domain allowed to signin
@@ -83,7 +83,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`auth.traefik.local.com`)
+  - match: Host(`auth.local.k8s-infrastructure.com`)
     kind: Rule
     services:
     - name: traefik-sso

@@ -23,7 +23,7 @@ kube-prometheus-stack:
       ## Hosts must be provided if Ingress is enabled.
       ##
       hosts:
-        - alertmanager.k8s-infrastructure.local
+        - alertmanager.local.k8s-infrastructure.com
 
 
   ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
@@ -46,7 +46,7 @@ kube-prometheus-stack:
         traefik.ingress.kubernetes.io/router.middlewares: traefik-sso@kubernetescrd
 
       hosts:
-        - grafana.k8s-infrastructure.local
+        - grafana.local.k8s-infrastructure.com
 
   ## Deploy a Prometheus instance
   ##
@@ -61,4 +61,4 @@ kube-prometheus-stack:
         traefik.ingress.kubernetes.io/router.middlewares: traefik-sso@kubernetescrd
 
       hosts:
-        - prometheus.k8s-infrastructure.local
+        - prometheus.local.k8s-infrastructure.com
