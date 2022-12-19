@@ -10,3 +10,4 @@ commonLabels:
 patchesStrategicMerge:
 - traefik/application.yaml
 - argocd-developer/application.yaml
+- kube-prometheus-stack/application.yaml

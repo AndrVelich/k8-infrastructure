@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - traefik/projects.yaml
   - traefik/application.yaml
-  - grafana/projects.yaml
-  - grafana/application.yaml
+  - kube-prometheus-stack/projects.yaml
+  - kube-prometheus-stack/application.yaml
   - argocd-developer/application.yaml
