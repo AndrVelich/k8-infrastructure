@@ -11,3 +11,19 @@ spec:
       services:
         - name: prometheus@internal
           kind: TraefikService
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-metrics
+  labels:
+    app.kubernetes.io/name: traefik-metrics
+spec:
+  ports:
+    - name: metrics
+      port: 9100
+  selector:
+    app.kubernetes.io/instance: traefik-traefik
+    app.kubernetes.io/name: traefik
