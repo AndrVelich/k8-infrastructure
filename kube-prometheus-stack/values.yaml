@@ -50,17 +50,41 @@ kube-prometheus-stack:
         equal:
           - 'namespace'
       route:
-        group_by: ['namespace']
-        group_wait: 30s
-        group_interval: 5m
-        repeat_interval: 12h
+        groupBy: ['namespace']
+        groupWait: 30s
+        groupInterval: 5m
+        repeatInterval: 12h
         receiver: 'null'
         routes:
         - receiver: 'null'
           matchers:
-            - alertname =~ "KubePodCrashLooping"  
+            - alertname =~ "KubePodCrashLooping2"  
       receivers:
       - name: 'null'
+      - name: 'email'
+        email_configs:
+        - to: andr.velich@gmail.com
+          from:
+            valueFrom:
+              secretKeyRef:
+                name: smtp-alertmanager
+                key: from 
+          auth_username: 
+            valueFrom:
+              secretKeyRef:
+                name: smtp-alertmanager
+                key: username
+          auth_password:
+            valueFrom:
+              secretKeyRef:
+                name: smtp-alertmanager
+                key: password 
+          smarthost:
+            valueFrom:
+              secretKeyRef:
+                name: smtp-alertmanager
+                key: host 
+          send_resolved: true
       templates:
       - '/etc/alertmanager/config/*.tmpl'
 
