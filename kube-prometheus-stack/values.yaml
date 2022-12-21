@@ -58,9 +58,33 @@ kube-prometheus-stack:
         routes:
         - receiver: 'null'
           matchers:
-            - alertname =~ "KubePodCrashLooping3"  
+            - alertname =~ "KubePodCrashLooping4"  
       receivers:
       - name: 'null'
+      - name: 'email'
+        email_configs:
+        - to: andr.velich@gmail.com
+          from:
+            valueFrom:
+              secretKeyRef:
+                name: smtp-alertmanager
+                key: from 
+          auth_username: 
+            valueFrom:
+              secretKeyRef:
+                name: smtp-alertmanager
+                key: username
+          auth_password:
+            valueFrom:
+              secretKeyRef:
+                name: smtp-alertmanager
+                key: password 
+          smarthost:
+            valueFrom:
+              secretKeyRef:
+                name: smtp-alertmanager
+                key: host 
+          send_resolved: true
       templates:
       - '/etc/alertmanager/config/*.tmpl'
 
