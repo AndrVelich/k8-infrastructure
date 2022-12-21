@@ -54,7 +54,7 @@ kube-prometheus-stack:
 
     alertmanagerSpec:
       alertmanagerConfiguration:
-        name: alertmanager-config-override
+        name: alertmanager-config
     
 
   ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
