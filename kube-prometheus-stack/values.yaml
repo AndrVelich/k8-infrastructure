@@ -58,7 +58,7 @@ kube-prometheus-stack:
         routes:
         - receiver: 'null'
           matchers:
-            - alertname =~ "KubePodCrashLooping2"  
+            - alertname =~ "KubePodCrashLooping3"  
       receivers:
       - name: 'null'
       templates:
