@@ -1,0 +1,8 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-dashboard
+  namespace: argocd
+spec:
+  source:
+    targetRevision: dev

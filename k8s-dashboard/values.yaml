@@ -1,0 +1,32 @@
+settings:
+  itemsPerPage: 25
+  labelsLimit: 2
+
+ingress:
+  enabled: true
+
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-sso@kubernetescrd
+
+  hosts:
+    - k8s-dashboard.local.k8s-infrastructure.com
+
+  paths:
+    - /
+    - /*
+
+extraArgs:
+  - --enable-skip-login
+  - --enable-insecure-login
+
+protocolHttp: true
+
+service:
+  type: ClusterIP
+  externalPort: 80
+
+rbac:
+  create: true
+  clusterRoleMetrics: true
+  clusterReadOnlyRole: true

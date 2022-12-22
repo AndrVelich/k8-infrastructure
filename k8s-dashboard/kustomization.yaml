@@ -1,0 +1,12 @@
+helmCharts:
+  - repo: "https://kubernetes-sigs.github.io/metrics-server"
+    name: "metrics-server"
+    releaseName: "metrics-server"
+    version: "3.8.3"
+    namespace: kube-system
+  - repo: "https://kubernetes.github.io/dashboard"
+    name: "kubernetes-dashboard"
+    releaseName: "kubernetes-dashboard"
+    version: "6.0.0"
+    namespace: kube-system
+    valuesFile: values.yaml

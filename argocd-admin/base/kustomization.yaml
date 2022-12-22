@@ -6,3 +6,4 @@ resources:
   - kube-prometheus-stack/projects.yaml
   - kube-prometheus-stack/application.yaml
   - argocd-developer/application.yaml
+  - k8s-dashboard/application.yaml
