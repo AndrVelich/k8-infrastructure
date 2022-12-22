@@ -1496,6 +1496,8 @@ kube-state-metrics:
   prometheus:
     monitor:
       enabled: true
+      additionalLabels:
+        release: kube-prometheus-stack
 
       ## Scrape interval. If not set, the Prometheus default scrape interval is used.
       ##

@@ -1,8 +1,32 @@
 kube-prometheus-stack:
 
+  kube-state-metrics:
+    prometheus:
+      monitor:
+        enabled: true
+        additionalLabels:
+          release: kube-prometheus-stack
+
   prometheus-node-exporter:
     hostRootFsMount:
       enabled: false
+
+  #storageSpec:
+    ## Using PersistentVolumeClaim
+    ##
+    #  volumeClaimTemplate:
+    #    spec:
+    #      storageClassName: gluster
+    #      accessModes: ["ReadWriteOnce"]
+    #      resources:
+    #        requests:
+    #          storage: 50Gi
+    #    selector: {}
+
+    ## Using tmpfs volume
+    ##
+    #  emptyDir:
+    #    medium: Memory
 
   ## Configuration for alertmanager
   ## ref: https://prometheus.io/docs/alerting/alertmanager/
