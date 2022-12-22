@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   namespace: argocd
-  name: dashboard
+  name: k8s-dashboard
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
