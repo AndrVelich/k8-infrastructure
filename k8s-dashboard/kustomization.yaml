@@ -4,6 +4,7 @@ helmCharts:
     releaseName: "metrics-server"
     version: "3.8.3"
     namespace: kube-system
+    valuesFile: metrics-values.yaml
   - repo: "https://kubernetes.github.io/dashboard"
     name: "kubernetes-dashboard"
     releaseName: "kubernetes-dashboard"
