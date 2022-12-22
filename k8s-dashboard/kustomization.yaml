@@ -9,4 +9,4 @@ helmCharts:
     releaseName: "kubernetes-dashboard"
     version: "6.0.0"
     namespace: kube-system
-    valuesFile: values.yaml
+    valuesFile: dashboard-values.yaml
