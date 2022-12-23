@@ -1,3 +1,6 @@
+#TODO move outside of the helm chart to avoid escaping {{}}
+#https://github.com/argoproj/applicationset/issues/553
+
 kind: ConfigMap
 apiVersion: v1
 metadata:
