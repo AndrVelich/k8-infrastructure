@@ -1,5 +1,7 @@
 kube-prometheus-stack:
 
+  # remove image!="" to fix dashboards
+  # https://github.com/prometheus-operator/kube-prometheus/issues/1056
   additionalPrometheusRulesMap:
     rule-name:
       groups:
@@ -11,6 +13,24 @@ kube-prometheus-stack:
               irate(container_cpu_usage_seconds_total{job="kubelet", metrics_path="/metrics/cadvisor"}[5m])
             ) * on (cluster, namespace, pod) group_left(node) topk by (cluster, namespace, pod) (
               1, max by(cluster, namespace, pod, node) (kube_pod_info{node!=""})
+            )
+        - record: node_namespace_pod_container:container_memory_working_set_bytes
+          expr: |-
+            container_memory_rss{job="kubelet", metrics_path="/metrics/cadvisor"}
+            * on (namespace, pod) group_left(node) topk by(namespace, pod) (1,
+              max by(namespace, pod, node) (kube_pod_info{node!=""})
+            )
+        - record: node_namespace_pod_container:container_memory_rss
+          expr: |-
+            container_memory_cache{job="kubelet", metrics_path="/metrics/cadvisor"}
+            * on (namespace, pod) group_left(node) topk by(namespace, pod) (1,
+              max by(namespace, pod, node) (kube_pod_info{node!=""})
+            )
+        - record: node_namespace_pod_container:container_memory_cache
+          expr: |-
+            container_memory_swap{job="kubelet", metrics_path="/metrics/cadvisor"}
+            * on (namespace, pod) group_left(node) topk by(namespace, pod) (1,
+              max by(namespace, pod, node) (kube_pod_info{node!=""})
             )
 
   kube-state-metrics:
