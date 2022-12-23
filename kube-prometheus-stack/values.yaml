@@ -108,6 +108,10 @@ kube-prometheus-stack:
   prometheus:
     enabled: true
 
+    prometheusSpec:
+    secrets:
+      - etcd-client
+    
     ingress:
       enabled: true
 
@@ -117,3 +121,14 @@ kube-prometheus-stack:
 
       hosts:
         - prometheus.local.k8s-infrastructure.com
+
+
+##
+kubeEtcd:
+  serviceMonitor:
+    scheme: https
+    insecureSkipVerify: false
+    serverName: localhost
+    caFile: /etc/prometheus/secrets/etcd-client-cert/etcd-ca
+    certFile: /etc/prometheus/secrets/etcd-client-cert/etcd-client
+    keyFile: /etc/prometheus/secrets/etcd-client-cert/etcd-client-key
