@@ -1,4 +1,21 @@
-
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: traefik-grafana-dashboard
+  namespace: kube-prometheus-stack
+  labels:
+    app: kube-prometheus-stack-grafana
+    app.kubernetes.io/instance: kube-prometheus-stack
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    app.kubernetes.io/version: 43.1.1
+    argocd.argoproj.io/instance: kube-prometheus-stack
+    chart: kube-prometheus-stack-43.1.1
+    grafana_dashboard: '1'
+    heritage: Helm
+    release: kube-prometheus-stack
+data:
+  traefik-dashboard.json: |-
     {
       "annotations": {
         "list": [
