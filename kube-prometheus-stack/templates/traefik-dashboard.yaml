@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: kube-prometheus-stack-k8s-resources-workload
+  name: traefik-grafana-dashboard
   namespace: kube-prometheus-stack
   uid: c68f83e3-1fce-417a-86a4-e36887af6c2b
   resourceVersion: '882979'
@@ -17,36 +17,8 @@ metadata:
     grafana_dashboard: '1'
     heritage: Helm
     release: kube-prometheus-stack
-  managedFields:
-    - manager: argocd-controller
-      operation: Apply
-      apiVersion: v1
-      time: '2022-12-23T16:24:12Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:annotations: {}
-          f:labels:
-            f:app: {}
-            f:app.kubernetes.io/instance: {}
-            f:app.kubernetes.io/managed-by: {}
-            f:app.kubernetes.io/part-of: {}
-            f:app.kubernetes.io/version: {}
-            f:argocd.argoproj.io/instance: {}
-            f:chart: {}
-            f:grafana_dashboard: {}
-            f:heritage: {}
-            f:release: {}
-    - manager: dashboard
-      operation: Update
-      apiVersion: v1
-      time: '2022-12-23T16:45:30Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:data:
-          f:k8s-resources-workload.json: {}
 data:
-  k8s-resources-workload.json: |-
+  traefik-dashboard.json: |-
     {
       "annotations": {
       "list": [
