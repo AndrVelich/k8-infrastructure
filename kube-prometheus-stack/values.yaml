@@ -1,5 +1,18 @@
 kube-prometheus-stack:
 
+  additionalPrometheusRulesMap: {}
+    rule-name:
+      groups:
+      - name: k8s.rules
+        rules:
+        - record: node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate
+          expr: |-
+            sum by (cluster, namespace, pod, container) (
+              irate(container_cpu_usage_seconds_total{job="kubelet", metrics_path="/metrics/cadvisor", image!=""}[5m])
+            ) * on (cluster, namespace, pod) group_left(node) topk by (cluster, namespace, pod) (
+              1, max by(cluster, namespace, pod, node) (kube_pod_info{node!=""})
+            )
+
   kube-state-metrics:
     prometheus:
       monitor:
@@ -121,27 +134,3 @@ kube-prometheus-stack:
 
       hosts:
         - prometheus.local.k8s-infrastructure.com
-
-
-##
-kubeEtcd:
-  serviceMonitor:
-    scheme: https
-    insecureSkipVerify: false
-    serverName: localhost
-    caFile: /etc/prometheus/secrets/etcd-client-cert/etcd-ca
-    certFile: /etc/prometheus/secrets/etcd-client-cert/etcd-client
-    keyFile: /etc/prometheus/secrets/etcd-client-cert/etcd-client-key
-
-additionalPrometheusRulesMap: {}
-  rule-name:
-    groups:
-    - name: k8s.rules
-      rules:
-      - record: node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate
-        expr: |-
-          sum by (cluster, namespace, pod, container) (
-            irate(container_cpu_usage_seconds_total{job="kubelet", metrics_path="/metrics/cadvisor", image!=""}[5m])
-          ) * on (cluster, namespace, pod) group_left(node) topk by (cluster, namespace, pod) (
-            1, max by(cluster, namespace, pod, node) (kube_pod_info{node!=""})
-          )
