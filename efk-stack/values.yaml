@@ -1,0 +1,39 @@
+elasticsearch:
+  replicas: 1
+  minimumMasterNodes: 1
+
+  esJavaOpts: "-Xms512m -Xmx512m"
+
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "1024Mi"
+    limits:
+      cpu: "500m"
+      memory: "1024Mi"
+
+kibana:
+  extraEnvs:
+    - name: "NODE_OPTIONS"
+      value: "--max-old-space-size=800" # A bit smaller then the available memory
+
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "1024Mi"
+    limits:
+      cpu: "500m"
+      memory: "1024Mi"
+
+  ingress:
+    enabled: true
+    className: "traefik"
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      traefik.ingress.kubernetes.io/router.middlewares: traefik-sso@kubernetescrd
+    hosts:
+      - host: kibana.xgateway.dev
+        paths:
+          - path: /
+
+

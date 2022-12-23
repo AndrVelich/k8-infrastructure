@@ -1,0 +1,17 @@
+apiVersion: v2
+name: logging
+description: An Elasticsearch/Fluentd/Kibana stack to collect and visualize k8s logs
+type: application
+
+version: 1.0.0
+appVersion: "1.0.0"
+dependencies:
+  - name: elasticsearch
+    repository: https://helm.elastic.co
+    version: 8.5.1
+  - name: kibana
+    repository: https://helm.elastic.co
+    version: 8.5.1
+  - name: fluentd
+    repository: https://fluent.github.io/helm-charts
+    version: 0.3.9
