@@ -1,6 +1,6 @@
 kube-prometheus-stack:
 
-  additionalPrometheusRulesMap: {}
+  additionalPrometheusRulesMap:
     rule-name:
       groups:
       - name: k8s.rules
