@@ -22,6 +22,7 @@ ingress:
 extraArgs:
   - --enable-skip-login
   - --enable-insecure-login
+  - --token-ttl=43200
 
 protocolHttp: true
 
