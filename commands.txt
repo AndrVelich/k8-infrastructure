@@ -1,5 +1,8 @@
 eyJhbGciOiJSUzI1NiIsImtpZCI6ImJrTkFFY04wUHpEYmVjeUVJRXZSa3MyQ09DQmVPNmo0LTFoZ2Jkd0ZrVDgifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxOTg3MTQ0OTQ4LCJpYXQiOjE2NzE3ODQ5NDgsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJkZWZhdWx0Iiwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImFkbWluLXVzZXIiLCJ1aWQiOiI1ZDVlMjUwYy0xMzQ4LTRjYmItOWRmZS0xYjlmMDVjMzdjYjAifX0sIm5iZiI6MTY3MTc4NDk0OCwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6YWRtaW4tdXNlciJ9.cEIC8stnva31tPC3E9MBRINDwDY2wsGOLiSbph5JQeek6YCvU2XdMbu8AT8ZF2TjcIbQ4rIdpu3F7jsdR_5aZdMaOQaA4vbfKAPzPRpsmmmltKtNt52_O3-1nEEhXLA9C-v4fdo5du8jYCGT8cYRcN0la1lyHmU7Ade_bD8-iFduAJ7NPRzyWahuIu_wkG1n58S0lwgQYnA7zemkYwnC6pAe8DUirJQr1P_-H4sA9NqVfFQrI-VuJt6X5ZdONwCz7DjAuWJwaor5Je7Ew7K6cgyja-P-SHNhJBQEowfLdQwXJukxG59j0VU_M7Tr72UZuHMZNadMmy4onFdmJJ5gsg
 
+wtjygUtntTl1M15P
+
+docker run -it --rm --privileged --pid=host justincormack/nsenter1
 
 
 kubectl config get-contexts
@@ -31,7 +34,7 @@ helm repo add argo https://argoproj.github.io/argo-helm
 helm search repo argo
 helm install argocd argo/argo-cd --version="5.16.2" -f argocd/helm-values/argocd-helm-values.yaml -n argocd --create-namespace
 
-wtjygUtntTl1M15P
+
 
 --Helm
 

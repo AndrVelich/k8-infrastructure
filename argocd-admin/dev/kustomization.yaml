@@ -8,7 +8,8 @@ commonLabels:
   env: dev
 
 patchesStrategicMerge:
-- traefik/application.yaml
 - argocd-developer/application.yaml
-- kube-prometheus-stack/application.yaml
+- grafana-dashboards/application.yaml
 - k8s-dashboard/application.yaml
+- kube-prometheus-stack/application.yaml
+- traefik/application.yaml
