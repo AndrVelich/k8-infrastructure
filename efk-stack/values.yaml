@@ -32,4 +32,6 @@ kibana:
       traefik.ingress.kubernetes.io/router.entrypoints: websecure
       traefik.ingress.kubernetes.io/router.middlewares: traefik-sso@kubernetescrd
     hosts:
-      - host: kibana.local.k8s-infrastructure.com
+    - host: kibana.local.k8s-infrastructure.com
+      paths:
+      - path: /
