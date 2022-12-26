@@ -8,10 +8,10 @@ appVersion: "1.0.0"
 dependencies:
   - name: elasticsearch
     repository: https://helm.elastic.co
-    version: 7.17.3
+    version: 8.5.1
   - name: kibana
     repository: https://helm.elastic.co
-    version: 7.17.3
+    version: 8.5.1
   - name: fluent-bit
     repository: https://fluent.github.io/helm-charts
     version: 0.21.6
