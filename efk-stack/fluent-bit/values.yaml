@@ -1,19 +1,20 @@
 fluent-bit:
-  outputs: |
-    [OUTPUT]
-        Name es
-        Match kube.*
-        Host elasticsearch-master
-        Logstash_Format On
-        Retry_Limit False
-        tls On
-        tls.verify Off
-    [OUTPUT]
-        Name es
-        Match host.*
-        Host elasticsearch-master
-        Logstash_Format On
-        Logstash_Prefix node
-        Retry_Limit False
-        tls On
-        tls.verify Off
+  config:
+    outputs: |
+      [OUTPUT]
+          Name es
+          Match kube.*
+          Host elasticsearch-master
+          Logstash_Format On
+          Retry_Limit False
+          tls On
+          tls.verify Off
+      [OUTPUT]
+          Name es
+          Match host.*
+          Host elasticsearch-master
+          Logstash_Format On
+          Logstash_Prefix node
+          Retry_Limit False
+          tls On
+          tls.verify Off
