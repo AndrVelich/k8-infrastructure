@@ -20,8 +20,8 @@ fluent-bit:
         Host elasticsearch-master
         Logstash_Format On
         Retry_Limit False
-        tls             On
-        tls.verify      Off
+        tls On
+        tls.verify Off
     [OUTPUT]
         Name es
         Match host.*
@@ -29,5 +29,5 @@ fluent-bit:
         Logstash_Format On
         Logstash_Prefix node
         Retry_Limit False
-        tls             On
-        tls.verify      Off
+        tls On
+        tls.verify Off
