@@ -9,6 +9,8 @@ fluent-bit:
           Retry_Limit False
           tls On
           tls.verify Off
+          HTTP_User elastic
+          HTTP_Passwd 1q77aPs1fLU0R20g
       [OUTPUT]
           Name es
           Match host.*
@@ -18,3 +20,5 @@ fluent-bit:
           Retry_Limit False
           tls On
           tls.verify Off
+          HTTP_User elastic
+          HTTP_Passwd 1q77aPs1fLU0R20g
