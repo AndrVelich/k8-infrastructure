@@ -2,8 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - argocd-developer/application.yaml
-- efk-stack/application.yaml
-- kibana/application.yaml
+
+- efk-stack/applications/elastic-search.yaml
+- efk-stack/applications/fluent-bit.yaml
+- efk-stack/applications/kibana.yaml
+
 - k8s-dashboard/application.yaml
 - grafana-dashboards/application.yaml
 

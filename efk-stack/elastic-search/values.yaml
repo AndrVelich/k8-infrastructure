@@ -1,0 +1,13 @@
+elasticsearch:
+  replicas: 1
+  minimumMasterNodes: 1
+
+  esJavaOpts: "-Xms512m -Xmx512m"
+
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "1024Mi"
+    limits:
+      cpu: "500m"
+      memory: "1024Mi"
