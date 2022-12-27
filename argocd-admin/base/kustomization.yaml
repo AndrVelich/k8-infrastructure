@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - argocd-developer/application.yaml
 - efk-stack/application.yaml
+- kibana/application.yaml
 - k8s-dashboard/application.yaml
 - grafana-dashboards/application.yaml
 
