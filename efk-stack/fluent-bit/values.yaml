@@ -9,10 +9,9 @@ fluent-bit:
           Retry_Limit False
           tls On
           tls.verify Off
-          tls.ca_file
+          Suppress_Type_Name On
           HTTP_User elastic
           HTTP_Passwd 1q77aPs1fLU0R20g
-          Suppress_Type_Name On
       [OUTPUT]
           Name es
           Match host.*
@@ -22,6 +21,6 @@ fluent-bit:
           Retry_Limit False
           tls On
           tls.verify Off
+          Suppress_Type_Name On
           HTTP_User elastic
           HTTP_Passwd 1q77aPs1fLU0R20g
-          Suppress_Type_Name On
