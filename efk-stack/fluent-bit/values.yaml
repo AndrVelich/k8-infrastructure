@@ -15,6 +15,7 @@ fluent-bit:
           Suppress_Type_Name On
           HTTP_User elastic
           HTTP_Passwd 1q77aPs1fLU0R20g
+          Replace_Dots On
       [OUTPUT]
           Name es
           Match host.*
@@ -30,3 +31,4 @@ fluent-bit:
           Buffer_Size 25M
           HTTP_User elastic
           HTTP_Passwd 1q77aPs1fLU0R20g
+          Replace_Dots On
