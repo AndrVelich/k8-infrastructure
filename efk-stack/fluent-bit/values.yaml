@@ -31,7 +31,6 @@ fluent-bit:
           Match host.*
           Host elasticsearch-master
           Logstash_Format On
-          Logstash_Prefix node
           Retry_Limit False
           tls On
           tls.verify Off
@@ -42,4 +41,4 @@ fluent-bit:
           HTTP_User elastic
           HTTP_Passwd permanentCustomElasticPassword
           Replace_Dots On
-          Logstash_Prefix k8s-infrastructure-host
+          Logstash_Prefix k8s-infrastructure-node
